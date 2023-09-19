@@ -48,7 +48,7 @@ namespace Timed_Math_Quiz_Assignment
             addend1 = randomizer.Next(51);
             addend2 = randomizer.Next(51);
             plusLeftLabel.Text = addend1.ToString();
-            plusRightLabel.Text = addend2.ToString();
+            label.Text = addend2.ToString();
             sum.Value = 0;
 
             // Subtraction problem code.
