@@ -16,6 +16,11 @@ namespace Timed_Math_Quiz_Assignment
 
         int addend1, addend2, minuend, subtrahend, multiplicand, multiplier, dividend, divisor;
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void startButton_Click(object sender, EventArgs e)
         {
             StartTheQuiz();
