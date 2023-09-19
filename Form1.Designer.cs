@@ -34,7 +34,6 @@
             this.plusLeftLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.plusRightLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.sum = new System.Windows.Forms.NumericUpDown();
             this.difference = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -100,25 +99,25 @@
             this.label2.Text = "=";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // plusRightLabel
-            // 
-            this.plusRightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plusRightLabel.Location = new System.Drawing.Point(182, 75);
-            this.plusRightLabel.Name = "plusRightLabel";
-            this.plusRightLabel.Size = new System.Drawing.Size(60, 50);
-            this.plusRightLabel.TabIndex = 4;
-            this.plusRightLabel.Text = "?";
-            this.plusRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(116, 75);
+            this.label3.Location = new System.Drawing.Point(182, 75);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 50);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "+";
+            this.label3.TabIndex = 4;
+            this.label3.Text = "?";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // plusRightLabel
+            // 
+            this.plusRightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.plusRightLabel.Location = new System.Drawing.Point(116, 75);
+            this.plusRightLabel.Name = "plusRightLabel";
+            this.plusRightLabel.Size = new System.Drawing.Size(60, 50);
+            this.plusRightLabel.TabIndex = 5;
+            this.plusRightLabel.Text = "+";
+            this.plusRightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // sum
             // 
@@ -316,7 +315,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.minusLeftLabel);
             this.Controls.Add(this.sum);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.plusRightLabel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.plusLeftLabel);
@@ -343,8 +341,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label plusLeftLabel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label plusRightLabel;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label plusRightLabel;
         private System.Windows.Forms.NumericUpDown sum;
         private System.Windows.Forms.NumericUpDown difference;
         private System.Windows.Forms.Label label4;
