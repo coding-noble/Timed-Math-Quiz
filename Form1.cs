@@ -89,7 +89,9 @@ namespace Timed_Math_Quiz_Assignment
             if (addend1 + addend2 == sum.Value)
             {
                 turnLabelsGreen(additionLabels);
-                SystemSounds.Asterisk.Play();
+            } else
+            {
+                turnLabelsBlack(additionLabels);
             }
         }
 
@@ -99,7 +101,9 @@ namespace Timed_Math_Quiz_Assignment
             if (minuend - subtrahend == difference.Value)
             {
                 turnLabelsGreen(subtractionLabels);
-                SystemSounds.Asterisk.Play();
+            } else
+            {
+                turnLabelsBlack(subtractionLabels);
             }
         }
 
@@ -109,7 +113,9 @@ namespace Timed_Math_Quiz_Assignment
             if (multiplicand * multiplier == product.Value)
             {
                 turnLabelsGreen(multiplicationLabels);
-                SystemSounds.Asterisk.Play();
+            } else
+            {
+                turnLabelsBlack(multiplicationLabels);
             }
         }
 
@@ -119,7 +125,9 @@ namespace Timed_Math_Quiz_Assignment
             if (dividend / divisor == quotient.Value)
             {
                 turnLabelsGreen(divisionLabels);
-                SystemSounds.Asterisk.Play();
+            } else
+            {
+                turnLabelsBlack(divisionLabels);
             }
         }
 
@@ -186,6 +194,14 @@ namespace Timed_Math_Quiz_Assignment
             foreach (Label label in labels) 
             {
                 label.ForeColor = Color.Green;
+            }
+        }
+
+        private void turnLabelsBlack(List<Label> labels)
+        {
+            foreach (Label label in labels)
+            {
+                label.ForeColor = Color.Black;
             }
         }
 
