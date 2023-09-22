@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Timed_Math_Quiz_Assignment
@@ -10,6 +11,11 @@ namespace Timed_Math_Quiz_Assignment
         Random randomizer = new Random();
 
         int addend1, addend2, minuend, subtrahend, multiplicand, multiplier, dividend, divisor, timeLeft;
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -52,50 +58,79 @@ namespace Timed_Math_Quiz_Assignment
             }
         }
 
-        private void product_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            dateLabel.Text = DateTime.Now.ToString("dd MMMM yyyy");
         }
 
-        private void dateLabel_Click(object sender, EventArgs e)
+        private void sum_KeyPress(object sender, KeyPressEventArgs keyPressEvent)
         {
+            if (keyPressEvent.KeyChar == (char)Keys.Enter) difference.Focus();
         }
 
-        private void populateDate(object sender, ControlEventArgs e)
+        private void difference_KeyPress(object sender, KeyPressEventArgs keyPressEvent)
         {
-            DateTime today = new DateTime();
-            dateLabel.Text = today.ToShortDateString();
+            if (keyPressEvent.KeyChar == (char)Keys.Enter) product.Focus();
         }
 
-        private void startButton_Click(object sender, EventArgs e)
+        private void product_KeyPress(object sender, KeyPressEventArgs keyPressEvent)
         {
-            StartTheQuiz();
-            startButton.Enabled = false;
+            if (keyPressEvent.KeyChar == (char)Keys.Enter) quotient.Focus();
         }
 
-        public Form1()
+        private void quotient_KeyPress(object sender, KeyPressEventArgs keyPressEvent)
         {
-            InitializeComponent();
+            if (keyPressEvent.KeyChar == (char)Keys.Enter) sum.Focus();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void sum_ValueChanged(object sender, EventArgs e)
         {
-
+            List<Label> additionLabels = new List<Label>() { plusLeftLabel, plusLabel, plusRightLabel, plusEquales };
+            if (addend1 + addend2 == sum.Value)
+            {
+                turnLabelsGreen(additionLabels);
+                SystemSounds.Asterisk.Play();
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void difference_ValueChanged(object sender, EventArgs e)
         {
+            List<Label> subtractionLabels = new List<Label>() { minusLeftLabel, minusLabel, minusRightLabel, minusEquales };
+            if (minuend - subtrahend == difference.Value)
+            {
+                turnLabelsGreen(subtractionLabels);
+                SystemSounds.Asterisk.Play();
+            }
+        }
 
+        private void product_ValueChanged(object sender, EventArgs e)
+        {
+            List<Label> multiplicationLabels = new List<Label>() { timesLeftLabel, timesLabel, timesRightLabel, timesEquales };
+            if (multiplicand * multiplier == product.Value)
+            {
+                turnLabelsGreen(multiplicationLabels);
+                SystemSounds.Asterisk.Play();
+            }
         }
 
         private void quotient_ValueChanged(object sender, EventArgs e)
         {
+            List<Label> divisionLabels = new List<Label>() { dividedLeftLabel, dividedLabel, dividedRightLabel, dividedEquales };
+            if (dividend / divisor == quotient.Value)
+            {
+                turnLabelsGreen(divisionLabels);
+                SystemSounds.Asterisk.Play();
+            }
+        }
 
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            if (plusLabel.ForeColor != Color.Black)
+            {
+                resetLabelColors();
+            }
+            StartTheQuiz();
+            startButton.Enabled = false;
         }
 
         private void StartTheQuiz()
@@ -137,26 +172,6 @@ namespace Timed_Math_Quiz_Assignment
 
         private bool CheckTheAnswer()
         {
-            List<Label> additionLabels = new List<Label>() { plusLeftLabel, plusLabel, plusRightLabel, plusEquales };
-            List<Label> subtractionLabels = new List<Label>() { minusLeftLabel, minusLabel, minusRightLabel, minusEquales };
-            List<Label> multiplicationLabels = new List<Label>() { timesLeftLabel, timesLabel, timesRightLabel, timesEquales };
-            List<Label> divisionLabels = new List<Label>() { dividedLeftLabel, dividedLabel, dividedRightLabel, dividedEquales };
-            if (addend1 + addend2 == sum.Value)
-            {
-                turnLabelsGreen(additionLabels);
-            }
-            if (minuend - subtrahend == difference.Value)
-            {
-                turnLabelsGreen(subtractionLabels);
-            }
-            if (multiplicand * multiplier == product.Value)
-            {
-                turnLabelsGreen(multiplicationLabels);
-            }
-            if (dividend / divisor == quotient.Value)
-            {
-                turnLabelsGreen(divisionLabels);
-            }
             if (plusLabel.ForeColor == Color.Green
                 && minusLabel.ForeColor == Color.Green
                 && timesLabel.ForeColor == Color.Green
@@ -172,6 +187,16 @@ namespace Timed_Math_Quiz_Assignment
             {
                 label.ForeColor = Color.Green;
             }
+        }
+
+        private void resetLabelColors()
+        {
+            List<Label> labels = new List<Label>() { plusLeftLabel, plusLabel, plusRightLabel, plusEquales, minusLeftLabel, minusLabel, minusRightLabel, minusEquales, timesLeftLabel, timesLabel, timesRightLabel, timesEquales, dividedLeftLabel, dividedLabel, dividedRightLabel, dividedEquales };
+            foreach (Label label in labels)
+            {
+                label.ForeColor = Color.Black;
+            }
+
         }
     }
 }

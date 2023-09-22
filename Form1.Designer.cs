@@ -52,11 +52,9 @@
             this.dividedEquales = new System.Windows.Forms.Label();
             this.dividedLeftLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
-            this.dateTime = new System.Windows.Forms.Label();
             this.plusRightLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dateLabel = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
@@ -71,7 +69,6 @@
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(200, 30);
             this.timeLabel.TabIndex = 0;
-            this.timeLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // label1
             // 
@@ -92,7 +89,6 @@
             this.plusLeftLabel.TabIndex = 2;
             this.plusLeftLabel.Text = "?";
             this.plusLeftLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.plusLeftLabel.Click += new System.EventHandler(this.label2_Click);
             // 
             // plusEquales
             // 
@@ -121,7 +117,9 @@
             this.sum.Name = "sum";
             this.sum.Size = new System.Drawing.Size(100, 35);
             this.sum.TabIndex = 1;
+            this.sum.ValueChanged += new System.EventHandler(this.sum_ValueChanged);
             this.sum.Enter += new System.EventHandler(this.answer_Enter);
+            this.sum.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.sum_KeyPress);
             // 
             // difference
             // 
@@ -130,7 +128,9 @@
             this.difference.Name = "difference";
             this.difference.Size = new System.Drawing.Size(100, 35);
             this.difference.TabIndex = 2;
+            this.difference.ValueChanged += new System.EventHandler(this.difference_ValueChanged);
             this.difference.Enter += new System.EventHandler(this.answer_Enter);
+            this.difference.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.difference_KeyPress);
             // 
             // minusLabel
             // 
@@ -181,6 +181,7 @@
             this.product.TabIndex = 3;
             this.product.ValueChanged += new System.EventHandler(this.product_ValueChanged);
             this.product.Enter += new System.EventHandler(this.answer_Enter);
+            this.product.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.product_KeyPress);
             // 
             // timesLabel
             // 
@@ -231,6 +232,7 @@
             this.quotient.TabIndex = 4;
             this.quotient.ValueChanged += new System.EventHandler(this.quotient_ValueChanged);
             this.quotient.Enter += new System.EventHandler(this.answer_Enter);
+            this.quotient.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quotient_KeyPress);
             // 
             // dividedLabel
             // 
@@ -276,21 +278,13 @@
             // 
             this.startButton.AutoSize = true;
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(168, 294);
+            this.startButton.Location = new System.Drawing.Point(157, 278);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(131, 34);
             this.startButton.TabIndex = 0;
             this.startButton.Text = "Start the Quiz";
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
-            // dateTime
-            // 
-            this.dateTime.AutoSize = true;
-            this.dateTime.Location = new System.Drawing.Point(13, 343);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.Size = new System.Drawing.Size(0, 13);
-            this.dateTime.TabIndex = 21;
             // 
             // plusRightLabel
             // 
@@ -310,31 +304,18 @@
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(13, 336);
+            this.dateLabel.Location = new System.Drawing.Point(7, 341);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(0, 13);
             this.dateLabel.TabIndex = 23;
-            this.dateLabel.Click += new System.EventHandler(this.dateLabel_Click);
-            this.dateLabel.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.populateDate);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 339);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "21 September 2023";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 361);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.plusRightLabel);
-            this.Controls.Add(this.dateTime);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.quotient);
             this.Controls.Add(this.dividedLabel);
@@ -397,11 +378,9 @@
         private System.Windows.Forms.Label dividedEquales;
         private System.Windows.Forms.Label dividedLeftLabel;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.Label dateTime;
         private System.Windows.Forms.Label plusRightLabel;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label dateLabel;
-        private System.Windows.Forms.Label label2;
     }
 }
 
